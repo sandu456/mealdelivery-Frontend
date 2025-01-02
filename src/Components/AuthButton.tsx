@@ -2,9 +2,9 @@ import React from 'react';
 import './AuthButton.css';
 
 interface AuthButtonProps {
-  label: string; // The text to display on the button
-  onClick: () => void; // The function to execute when the button is clicked
-  disabled?: boolean; // Optional: If true, disables the button
+  label: string; 
+  onClick: () => void; 
+  disabled?: boolean; 
 }
 
 const AuthButton: React.FC<AuthButtonProps> = ({ label, onClick, disabled = false }) => {
