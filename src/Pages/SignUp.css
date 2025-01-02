@@ -8,7 +8,6 @@
     font-family: 'Arial', sans-serif;
   }
   
-  /* Styling for the heading */
   .signup h2 {
     margin-bottom: 20px;
     font-size: 24px;
@@ -16,7 +15,6 @@
     text-align: center;
   }
   
-  /* Form styling */
   .signup form {
     display: flex;
     flex-direction: column;
@@ -28,7 +26,6 @@
     max-width: 400px;
   }
   
-  /* Label styling */
   .signup label {
     margin-bottom: 20px;
     display: flex;
@@ -37,7 +34,6 @@
     color: #3c3939;
   }
   
-  /* Input field styling */
   .signup input {
     margin-top: 8px;
     padding: 10px;
@@ -52,8 +48,7 @@
     border-color: #007bff;
     box-shadow: 0 0 4px rgba(0, 123, 255, 0.2);
   }
-  
-  /* Button styling */
+ 
   .signup button {
     padding: 12px;
     font-size: 16px;
@@ -69,12 +64,10 @@
     background-color: #218838;
   }
   
-  /* Add some space between form fields */
   .signup form > *:not(:last-child) {
     margin-bottom: 15px;
   }
   
-  /* Responsive design */
   @media (max-width: 768px) {
     .signup form {
       padding: 20px 25px;
