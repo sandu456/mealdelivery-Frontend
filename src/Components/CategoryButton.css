@@ -1,41 +1,41 @@
 .category-button {
-    background-color: #007bff; /* Primary blue background */
-    color: white; /* White text */
-    padding: 10px 20px; /* Padding for spacing */
-    font-size: 16px; /* Medium font size */
-    font-weight: bold; /* Bold text */
-    border: none; /* Remove border */
-    border-radius: 8px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #007bff; 
+    color: white; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   }
   
   .category-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+    background-color: #0056b3; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
   }
   
   .category-button:active {
-    background-color: #003f7f; /* Even darker blue when clicked */
-    transform: translateY(0); /* Reset lift effect */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow on click */
+    background-color: #003f7f; 
+    transform: translateY(0); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   }
   
   .category-button.disabled {
-    background-color: #d3d3d3; /* Grey background for disabled state */
-    color: #6c757d; /* Dimmed text for disabled state */
-    cursor: not-allowed; /* Disabled cursor */
-    box-shadow: none; /* No shadow for disabled state */
+    background-color: #d3d3d3; 
+    color: #6c757d; 
+    cursor: not-allowed; 
+    box-shadow: none; 
   }
   
   .category-button.small {
-    padding: 8px 16px; /* Smaller padding */
-    font-size: 14px; /* Smaller font size */
+    padding: 8px 16px;
+    font-size: 14px; 
   }
   
   .category-button.large {
-    padding: 14px 28px; /* Larger padding */
-    font-size: 18px; /* Larger font size */
+    padding: 14px 28px; 
+    font-size: 18px; 
   }
