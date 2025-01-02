@@ -13,7 +13,7 @@ const SignUp = () => {
       setPassword('Passwords do not match!');
     } else {
       setPassword('');
-      // Here you would send the form data to the server
+      
       alert(`Account created for: ${email}`);
     }
   };
