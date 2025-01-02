@@ -5,20 +5,20 @@
     padding: 10px 20px; /* Padding for a better look */
     font-size: 16px; /* Medium text size */
     border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth color transition */
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
   }
   
   .auth-button:hover {
-    background-color: #45a049; /* Slightly darker green on hover */
+    background-color: #45a049; 
   }
   
   .auth-button:active {
-    background-color: #3e8e41; /* Even darker green when clicked */
+    background-color: #3e8e41; 
   }
   
   .auth-button.disabled {
-    background-color: #c5c5c5; /* Grey background for disabled state */
-    cursor: not-allowed; /* No pointer cursor for disabled state */
-    color: #666; /* Dimmed text color */
+    background-color: #c5c5c5; 
+    cursor: not-allowed; 
+    color: #666; 
   }
