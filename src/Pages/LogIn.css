@@ -8,14 +8,14 @@
     font-family: Arial, sans-serif;
   }
   
-  /* Styling for the heading */
+  
   .login h2 {
     margin-bottom: 20px;
     font-size: 24px;
     color: #333;
   }
   
-  /* Form styling */
+  
   .login form {
     display: flex;
     flex-direction: column;
