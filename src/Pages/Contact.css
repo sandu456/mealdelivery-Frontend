@@ -2,7 +2,7 @@
     padding: 20px;
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f9f9f9;
+    background-color: #78a1ec;
   }
   
   .contact-header {
@@ -17,7 +17,7 @@
   
   .contact-header p {
     font-size: 1.2rem;
-    color: #666;
+    color: #3b1717;
   }
   
   .contact-content {
@@ -28,6 +28,7 @@
   }
   
   .contact-form,
+  
   .contact-details {
     background: #fff;
     padding: 20px;
