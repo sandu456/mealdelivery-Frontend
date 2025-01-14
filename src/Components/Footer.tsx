@@ -7,9 +7,9 @@ const Footer = () => {
     <footer className="footer">
       <p>&copy; 2025 Meal Plans and Delivery. All rights reserved.</p>
       <div className="social-icons">
-        <a href="#"><i className="fab fa-facebook"></i></a>
-        <a href="#"><i className="fab fa-twitter"></i></a>
-        <a href="#"><i className="fab fa-instagram"></i></a>
+        <a href="faceboo.com"><i className="Facebook"></i></a>
+        <a href="#"><i className="Ttwitter"></i></a>
+        <a href="#"><i className="Instagram"></i></a>
       </div>
     </footer>
   );
