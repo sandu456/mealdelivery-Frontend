@@ -68,16 +68,7 @@ const App: React.FC = () => {
         </Routes>
       </div>
 
-      {/* Footer */}
-      <footer className="footer-bar">
-      <p>&copy; {new Date().getFullYear()} Meal Delivery. All rights reserved.</p>
-      <ul className="footer-links">
-        <li><a href="/about-us">About Us</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/privacy-policy">Privacy Policy</a></li>
-        <li><a href="/terms">Terms of Service</a></li>
-      </ul>
-    </footer>
+      
     </Router>
   );
 };
