@@ -6,6 +6,7 @@ import SignUp from './Pages/SignUp';
 import AboutUs from './Pages/AboutUs';
 import Contact from './Pages/Contact';
 
+
 const App: React.FC = () => {
   return (
     <Router>

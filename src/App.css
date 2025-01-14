@@ -13,3 +13,10 @@ header h1 {
   margin: 0;
 }
 
+body {
+  background-image: url('/C:\Users\Amesh Nimsara\Desktop\Frontend\pexels-photo-1640777.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
