@@ -17,14 +17,4 @@ const Home: React.FC = () => {
           <p>Taste our wide variety of vegetarian meals.</p>
           <a href="/vegetarian" className="category-link">Explore Vegetarian</a>
         </div>
-        <div className="category">
-          <h2>Pescatarian</h2>
-          <p>Enjoy fresh pescatarian dishes.</p>
-          <a href="/pescatarian" className="category-link">Explore Pescatarian</a>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Home;
+        
