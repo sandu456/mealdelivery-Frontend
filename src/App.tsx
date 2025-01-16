@@ -5,13 +5,14 @@ import LogIn from './Pages/LogIn';
 import SignUp from './Pages/SignUp';
 import AboutUs from './Pages/AboutUs';
 import Contact from './Pages/Contact';
-
+import testImg from './assets/test.jpeg';
 
 const App: React.FC = () => {
   return (
     <Router>
       <nav className="navbar">
       <h1>Meal Delivery </h1>
+      <img src={'./test.jpeg'} alt='test' style={{width: '50px'}} />
       <ul>
         <li><Link to="/login">Log In</Link></li>
         <li><Link to="/signup">Sign Up</Link></li>
