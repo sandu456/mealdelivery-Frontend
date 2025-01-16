@@ -12,6 +12,7 @@ const App: React.FC = () => {
     <Router>
       <nav className="navbar">
       <h1>Meal Delivery </h1>
+     
       <ul>
         <li><Link to="/login">Log In</Link></li>
         <li><Link to="/signup">Sign Up</Link></li>
@@ -25,7 +26,7 @@ const App: React.FC = () => {
     
       <div className="app">
         <Routes>
-          {/* Main Page */}
+         
           <Route
             path="/"
             element={
@@ -71,6 +72,8 @@ const App: React.FC = () => {
 
       
     </Router>
+   
+    
   );
 };
 
