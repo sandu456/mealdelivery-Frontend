@@ -26,7 +26,7 @@ const App: React.FC = () => {
     
       <div className="app">
         <Routes>
-          {/* Main Page */}
+         
           <Route
             path="/"
             element={
@@ -72,6 +72,7 @@ const App: React.FC = () => {
 
       
     </Router>
+    
   );
 };
 
