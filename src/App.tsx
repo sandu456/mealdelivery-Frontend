@@ -72,6 +72,7 @@ const App: React.FC = () => {
 
       
     </Router>
+   
     
   );
 };
