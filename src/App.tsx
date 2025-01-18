@@ -80,11 +80,11 @@ const App: React.FC = () => {
             }
           />
 
-          {/* Log In and Sign Up Pages */}
+          
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
 
-          {/* About Us and Contact Pages */}
+          
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
