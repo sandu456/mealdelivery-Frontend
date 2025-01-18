@@ -7,9 +7,9 @@ import AboutUs from './Pages/AboutUs';
 import Contact from './Pages/Contact';
 import OrderMeal from './Pages/OrderMeal';
 import PurchaseRecipe from './Pages/PurchaseRecipe';
-import Vegan from './Pages/Vegan';
-import Vegetarian from './Pages/Vegetarian';
-import Pescatarian from './Pages/Pescatarian';
+import Vegan from './Pages/vegan';
+import Vegetarian from './Pages/vegetarian';
+import Pescatarian from './Pages/pescatarian';
 
 const App: React.FC = () => {
   return (
