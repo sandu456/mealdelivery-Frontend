@@ -60,6 +60,22 @@ const App: React.FC = () => {
                     </a>
                   </div>
                 </div>
+                <div className="order-options">
+                  <div className="option">
+                    <h2>Order Meals</h2>
+                    <p>Choose your favorite meals and have them delivered.</p>
+                    <Link to="/order-meal" className="option-link">
+                      Order Meals
+                    </Link>
+                  </div>
+                  <div className="option">
+                    <h2>Purchase Recipes</h2>
+                    <p>Get our exclusive recipes delivered to your email.</p>
+                    <Link to="/purchase-recipe" className="option-link">
+                      Purchase Recipes
+                    </Link>
+                  </div>
+                </div>
               </div>
             }
           />
