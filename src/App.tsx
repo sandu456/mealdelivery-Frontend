@@ -5,7 +5,11 @@ import LogIn from './Pages/LogIn';
 import SignUp from './Pages/SignUp';
 import AboutUs from './Pages/AboutUs';
 import Contact from './Pages/Contact';
-
+import OrderMeal from './Pages/OrderMeal';
+import PurchaseRecipe from './Pages/PurchaseRecipe';
+import Vegan from './Pages/Vegan';
+import Vegetarian from './Pages/Vegetarian';
+import Pescatarian from './Pages/Pescatarian';
 
 const App: React.FC = () => {
   return (
