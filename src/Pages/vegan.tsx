@@ -1,6 +1,9 @@
 import React from 'react';
 import './vegan.css';
 import OrderButtons from '../Components/OrderButtons';
+import '../assets/Vegan-Pasta.jpg';
+import '../assets/Grilled-Sandwich.jpg';
+import '../assets/Vegetable-&-Egg-Stir-Fry.jpg';
 
 const Vegan = () => {
   const recipes = [
