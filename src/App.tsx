@@ -10,6 +10,7 @@ import PurchaseRecipe from './Components/PurchaseRecipe';
 import Vegan from './Pages/vegan';
 import Vegetarian from './Pages/vegetarian';
 import Pescatarian from './Pages/pescatarian';
+import OrderButtons from './Components/OrderButtons';
 
 const App: React.FC = () => {
   return (
@@ -84,7 +85,7 @@ const App: React.FC = () => {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
 
-          
+          <Route path="/" element={<OrderButtons />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/order-meal" element={<OrderMeal />} />
