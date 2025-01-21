@@ -1,6 +1,9 @@
 import React from 'react';
 import './pescatarian.css';
 import OrderButtons from '../Components/OrderButtons';
+import '../assets/pasta.jpg';
+import '../assets/sandwich.jpg';
+import '../assets/chicken-fry.jpg';
 
 const Pescatarian = () => {
   const recipes = [
