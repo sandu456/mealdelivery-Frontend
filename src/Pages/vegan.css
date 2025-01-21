@@ -25,37 +25,3 @@
   height: auto;
   border-radius: 8px;
 }
-.button-group {
-  display: flex;
-  justify-content: center;
-  gap: 1cm; /* Add 1cm space between the buttons */
-  margin-top: 10px;
-}
-
-.order-button,
-.purchase-button {
-  padding: 10px 15px;
-  font-size: 14px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  flex: 1; /* Ensure buttons are proportionally sized */
-}
-
-.order-button {
-  background-color: #28a745;
-  color: white;
-}
-
-.order-button:hover {
-  background-color: #218838;
-}
-
-.purchase-button {
-  background-color: #007bff;
-  color: white;
-}
-
-.purchase-button:hover {
-  background-color: #0056b3;
-}

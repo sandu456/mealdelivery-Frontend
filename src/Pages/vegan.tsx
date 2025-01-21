@@ -1,22 +1,12 @@
+import React from 'react';
 import './vegan.css';
+import OrderButtons from '../Components/OrderButtons';
 
 const Vegan = () => {
   const recipes = [
-    {
-      id: 1,
-      name: "Vegan Pasta",
-      image: "src/assets/vegan-pasta.jpg", // Update with the correct path or URL
-    },
-    {
-      id: 2,
-      name: "Grilled Sandwich",
-      image: "src/assets/grilled-sandwich.jpg", // Update with the correct path or URL
-    },
-    {
-      id: 3,
-      name: "Vegetable & Egg Stir Fry",
-      image: "src/assets/vegetable-stir-fry.jpg", // Update with the correct path or URL
-    },
+    { id: 1, name: 'Vegan Pasta' },
+    { id: 2, name: 'Grilled Sandwich' },
+    { id: 3, name: 'Vegetable & Egg Stir Fry' },
   ];
 
   const handleOrder = (recipeName: string) => {
@@ -34,25 +24,15 @@ const Vegan = () => {
         {recipes.map((recipe) => (
           <div key={recipe.id} className="recipe-card">
             <img
-              src={recipe.image}
+              src={`src/assets/${recipe.name.toLowerCase().replace(/ /g, '-')}.jpg`}
               alt={recipe.name}
               className="recipe-image"
             />
             <h3>{recipe.name}</h3>
-            <div className="button-group">
-              <button
-                className="order-button"
-                onClick={() => handleOrder(recipe.name)}
-              >
-                Order Now
-              </button>
-              <button
-                className="purchase-button"
-                onClick={() => handlePurchase(recipe.name)}
-              >
-                Purchase Recipe
-              </button>
-            </div>
+            <OrderButtons
+              onOrder={() => handleOrder(recipe.name)}
+              onPurchase={() => handlePurchase(recipe.name)}
+            />
           </div>
         ))}
       </div>
