@@ -5,7 +5,7 @@ import LogIn from './Pages/LogIn';
 import SignUp from './Pages/SignUp';
 import AboutUs from './Pages/AboutUs';
 import Contact from './Pages/Contact';
-import OrderMeal from './Pages/OrderMeal';
+import OrderMeal from './Components/OrderMeal';
 import PurchaseRecipe from './Components/PurchaseRecipe';
 import Vegan from './Pages/vegan';
 import Vegetarian from './Pages/vegetarian';
