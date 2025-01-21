@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './OrderButtons.css';
-import OrderMeal from './OrderMeal';
+
 
 type OrderButtonsProps = {
-  onOrder: () => void;
-  onPurchase: () => void;
+  onOrder?: () => void; // Make the functions optional
+  onPurchase?: () => void; // Make the functions optional
 };
 
-const OrderButtons: React.FC<OrderButtonsProps> = ({ onOrder, onPurchase }) => {
+const OrderButtons: React.FC<OrderButtonsProps> = ({ onOrder = () => {}, onPurchase = () => {} }) => {
   const [showOrderMeal, setShowOrderMeal] = useState(false);
 
   const handleOrderClick = () => {
@@ -24,8 +24,7 @@ const OrderButtons: React.FC<OrderButtonsProps> = ({ onOrder, onPurchase }) => {
         Purchase Recipe
       </button>
 
-      {/* Show OrderMeal form only if showOrderMeal is true */}
-      {showOrderMeal && <OrderMeal />}
+     
     </div>
   );
 };
