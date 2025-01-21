@@ -1,8 +1,61 @@
 .vegetarian {
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  .vegetarian p {
-    font-size: 1.2rem;
-  }
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.recipe-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.recipe-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  max-width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1cm; /* Adds 1cm space between the buttons */
+  margin-top: 10px;
+}
+
+.order-button,
+.purchase-button {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.order-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.order-button:hover {
+  background-color: #218838;
+}
+
+.purchase-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.purchase-button:hover {
+  background-color: #0056b3;
+}
