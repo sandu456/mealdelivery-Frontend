@@ -32,30 +32,3 @@
   gap: 1cm; /* Adds 1cm space between the buttons */
   margin-top: 10px;
 }
-
-.order-button,
-.purchase-button {
-  padding: 10px 15px;
-  font-size: 14px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.order-button {
-  background-color: #28a745;
-  color: white;
-}
-
-.order-button:hover {
-  background-color: #218838;
-}
-
-.purchase-button {
-  background-color: #007bff;
-  color: white;
-}
-
-.purchase-button:hover {
-  background-color: #0056b3;
-}
