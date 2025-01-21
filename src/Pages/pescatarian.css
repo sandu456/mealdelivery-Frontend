@@ -1,8 +1,80 @@
 .pescatarian {
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  .pescatarian p {
-    font-size: 1.2rem;
-  }
+  padding: 2rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.pescatarian h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.recipe-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.recipe-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.recipe-card h3 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1cm; /* Adds 1cm space between buttons */
+  margin-top: 1rem;
+}
+
+.order-button,
+.purchase-button {
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.order-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.order-button:hover {
+  background-color: #218838;
+}
+
+.purchase-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.purchase-button:hover {
+  background-color: #0056b3;
+}
