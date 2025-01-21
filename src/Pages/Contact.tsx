@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
     <div className="contact-page">
       <div className="contact-header">
         <h1>Contact Us</h1>
-        <p>We'd love to hear from you! Reach out to us with your questions, feedback, or suggestions.</p>
+        <p>We would love to hear from you! Reach out to us with your questions, feedback, or suggestions.</p>
       </div>
 
       <div className="contact-content">
@@ -29,13 +29,13 @@ const Contact: React.FC = () => {
         <div className="contact-details">
           <h2>Our Contact Details</h2>
           <p>
-            <strong>Email:</strong> support@mealdelivery.com
+            <strong>Email:</strong> asangisandeepani@gmail.com
           </p>
           <p>
-            <strong>Phone:</strong> +94 702345678
+            <strong>Phone:</strong> 0778765179
           </p>
           <p>
-            <strong>Address:</strong> 123 Meal Street, Food City, SriLanka
+            <strong>Address:</strong> Fransis Lane, Kelaniya, SriLanka
           </p>
         </div>
       </div>
