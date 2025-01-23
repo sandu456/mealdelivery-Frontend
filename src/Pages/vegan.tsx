@@ -23,11 +23,6 @@ const Vegan = () => {
       <div className="recipe-list">
         {recipes.map((recipe) => (
           <div key={recipe.id} className="recipe-card">
-            <img
-              src={`src/assets/${recipe.name.toLowerCase().replace(/ /g, '-')}.jpg`}
-              alt={recipe.name}
-              className="recipe-image"
-            />
             <h3>{recipe.name}</h3>
           </div>
         ))}
