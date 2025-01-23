@@ -2,7 +2,7 @@
     padding: 20px;
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #78a1ec;
+    background-color: #200367;
   }
   
   .contact-header {
@@ -12,12 +12,12 @@
   
   .contact-header h1 {
     font-size: 2.5rem;
-    color: #333;
+    color: #f3f2f2;
   }
   
   .contact-header p {
     font-size: 1.2rem;
-    color: #3b1717;
+    color: #c3a8a8;
   }
   
   .contact-content {
@@ -47,7 +47,7 @@
   
   .contact-form label {
     font-size: 1rem;
-    color: #555;
+    color: #0a0a0a;
     display: block;
     margin-bottom: 5px;
   }
@@ -63,12 +63,11 @@
   }
   
   .contact-form button {
-    padding: 10px;
+    padding: 1px;
     font-size: 1rem;
     color: #fff;
     background-color: #007bff;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     width: 100%;
   }
@@ -79,6 +78,6 @@
   
   .contact-details p {
     margin-bottom: 10px;
-    color: #555;
+    color: #080808;
   }
   
