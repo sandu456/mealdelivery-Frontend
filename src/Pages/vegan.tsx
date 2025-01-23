@@ -1,9 +1,6 @@
 import React from 'react';
 import './vegan.css';
 import OrderButtons from '../Components/OrderButtons';
-import '../assets/Vegan-Pasta.jpg';
-import '../assets/Grilled-Sandwich.jpg';
-import '../assets/Vegetable-&-Egg-Stir-Fry.jpg';
 
 const Vegan = () => {
   const recipes = [
@@ -32,10 +29,6 @@ const Vegan = () => {
               className="recipe-image"
             />
             <h3>{recipe.name}</h3>
-            <OrderButtons
-              onOrder={() => handleOrder(recipe.name)}
-              onPurchase={() => handlePurchase(recipe.name)}
-            />
           </div>
         ))}
       </div>

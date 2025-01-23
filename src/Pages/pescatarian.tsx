@@ -1,9 +1,6 @@
 import React from 'react';
 import './pescatarian.css';
 import OrderButtons from '../Components/OrderButtons';
-import '../assets/pasta.jpg';
-import '../assets/sandwich.jpg';
-import '../assets/chicken-fry.jpg';
 
 const Pescatarian = () => {
   const recipes = [
@@ -32,10 +29,6 @@ const Pescatarian = () => {
               className="recipe-image"
             />
             <h3>{recipe.name}</h3>
-            <OrderButtons
-              onOrder={() => handleOrder(recipe.name)}
-              onPurchase={() => handlePurchase(recipe.name)}
-            />
           </div>
         ))}
       </div>
