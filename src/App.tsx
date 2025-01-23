@@ -34,6 +34,14 @@ const App: React.FC = () => {
               <div>
                 <h1>Welcome to Meal Delivery</h1>
                 <p>Explore our meal options below:</p>
+                <div className="login-signup">
+                  <Link to="/login" className="button login-button">
+                    Log In
+                  </Link>
+                  <Link to="/signup" className="button signup-button">
+                    Sign Up
+                  </Link>
+                </div>
                 <div className="meal-categories">
                   <div className="category">
                     <h2>Vegan</h2>
