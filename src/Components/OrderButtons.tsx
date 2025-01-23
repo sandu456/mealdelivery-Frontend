@@ -1,18 +1,24 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './OrderButtons.css';
 
-type OrderButtonsProps = {
-  onOrder: () => void;
-  onPurchase: () => void;
-};
+const OrderButtons: React.FC = () => {
+  const navigate = useNavigate();
 
-const OrderButtons: React.FC<OrderButtonsProps> = ({ onOrder, onPurchase }) => {
+  const handleOrderNow = () => {
+    navigate('/order-meal'); // Navigates to the OrderMeal page
+  };
+
+  const handlePurchaseRecipe = () => {
+    alert('Feature to purchase recipes coming soon!');
+  };
+
   return (
     <div className="button-group">
-      <button className="order-button" onClick={onOrder}>
+      <button className="order-button" onClick={handleOrderNow}>
         Order Now
       </button>
-      <button className="purchase-button" onClick={onPurchase}>
+      <button className="purchase-button" onClick={handlePurchaseRecipe}>
         Purchase Recipe
       </button>
     </div>

@@ -10,6 +10,7 @@ import PurchaseRecipe from './Components/PurchaseRecipe';
 import Vegan from './Pages/vegan';
 import Vegetarian from './Pages/vegetarian';
 import Pescatarian from './Pages/pescatarian';
+import OrderButtons from './Components/OrderButtons';
 
 const App: React.FC = () => {
   return (
@@ -18,11 +19,7 @@ const App: React.FC = () => {
       <h1>Meal Delivery </h1>
      
       <ul>
-        <li><Link to="/login">Log In</Link></li>
-        <li><Link to="/signup">Sign Up</Link></li>
-      </ul>
-
-      <ul>
+        <li><Link to="/">Home</Link></li>
         <li><a href="/About-Us">About Us</a></li>
         <li><a href="/Contact">Contact</a></li>
       </ul>
@@ -84,7 +81,7 @@ const App: React.FC = () => {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
 
-          
+          <Route path="/" element={<OrderButtons />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/order-meal" element={<OrderMeal />} />
@@ -94,7 +91,9 @@ const App: React.FC = () => {
           <Route path="/pescatarian" element={<Pescatarian />} />
         </Routes>
       </div>
-
+      <footer className="footer">
+        <p>&copy; 2025 Meal Plans and Delivery. All rights reserved.</p>
+      </footer>
       
     </Router>
    
