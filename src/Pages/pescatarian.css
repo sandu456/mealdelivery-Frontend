@@ -1,7 +1,16 @@
 .pescatarian {
-  padding: 2rem;
-  text-align: center;
+  padding: 20px;
   font-family: Arial, sans-serif;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 80px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgb(57, 127, 224);
+  color: aqua;
 }
 
 .pescatarian h2 {
