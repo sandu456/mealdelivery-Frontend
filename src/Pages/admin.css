@@ -1,6 +1,18 @@
 .admin-page {
     text-align: center;
-    padding: 180px;
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 50px;
+  }
+
+  .admin-page h1 {
+    color: black;
+  }
+
+  .admin-page p {
+    color: #153f3f;
   }
   
   .admin-page button {

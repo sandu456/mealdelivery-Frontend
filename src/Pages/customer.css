@@ -1,6 +1,18 @@
 .customer-page {
     text-align: center;
-    padding: 180px;
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 50px;
+    background: #fff;
+  }
+
+  .customer-page h1 {
+    color: black;
+  }
+
+  .customer-page p {
+    color: rgb(31, 133, 133);
   }
   
   .customer-page button {
