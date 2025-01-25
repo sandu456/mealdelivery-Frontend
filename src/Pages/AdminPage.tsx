@@ -1,16 +1,39 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './admin.css';
 
-const AdminPage = () => {
+const AdminPage: React.FC = () => {
   return (
     <div className="admin-page">
-      <h1>Admin Dashboard</h1>
-      <p>Welcome to the Admin Page! Manage recipes, orders, and customers here.</p>
-      <button>Manage Recipes</button>
-      <button>View Orders</button>
-      <button>Manage Customers</button>
+      <h1>Welcome Admin!</h1>
+      <p>Manage recipes, orders, and users here.</p>
+      
+      <div className="options-container">
+        <div className="option">
+          <h2>Manage Recipes</h2>
+          <p>Add, edit, or remove recipes from the catalog.</p>
+          <Link to="/manage-recipes" className="option-link">
+            Manage Recipes
+          </Link>
+        </div>
+        <div className="option">
+          <h2>View Orders</h2>
+          <p>Track and manage customer orders.</p>
+          <Link to="/view-orders" className="option-link">
+            View Orders
+          </Link>
+        </div>
+        <div className="option">
+          <h2>Manage Users</h2>
+          <p>View and manage customer accounts.</p>
+          <Link to="/manage-users" className="option-link">
+            Manage Users
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default AdminPage;
+

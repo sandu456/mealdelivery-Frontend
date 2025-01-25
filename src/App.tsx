@@ -11,6 +11,7 @@ import PurchaseRecipe from './Components/PurchaseRecipe';
 import Vegan from './Pages/vegan';
 import Vegetarian from './Pages/vegetarian';
 import Pescatarian from './Pages/pescatarian';
+// import ViewRecipies from './Components/ViewRecipies';
 
 const App: React.FC = () => {
   return (
@@ -39,7 +40,7 @@ const App: React.FC = () => {
                   <Link to="/login" className="button login-button">Log In</Link>
                   <Link to="/signup" className="button signup-button">Sign Up</Link>
                 </div>
-                <div className="meal-categories">
+                {/* <div className="meal-categories">
                   <div className="category">
                     <h2>Vegan</h2>
                     <p>Discover our delicious vegan recipes.</p>
@@ -55,29 +56,27 @@ const App: React.FC = () => {
                     <p>Enjoy fresh pescatarian dishes.</p>
                     <Link to="/pescatarian" className="category-link">Explore Pescatarian</Link>
                   </div>
-                </div>
+                </div> */}
               </div>
             }
           />
 
-          {/* Admin and Customer Routes */}
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/customer" element={<CustomerPage />} />
 
-          {/* Authentication Routes */}
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
 
-          {/* Informational Routes */}
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
 
-          {/* Meal and Recipe Routes */}
           <Route path="/order-meal" element={<OrderMeal />} />
           <Route path="/purchase-recipe" element={<PurchaseRecipe />} />
           <Route path="/vegan" element={<Vegan />} />
           <Route path="/vegetarian" element={<Vegetarian />} />
           <Route path="/pescatarian" element={<Pescatarian />} />
+          {/* <Route path="/view-recipies" element={<ViewRecipies />} /> */}
+          
         </Routes>
       </div>
 
