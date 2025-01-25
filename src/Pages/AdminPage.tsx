@@ -5,7 +5,7 @@ import './admin.css';
 const AdminPage: React.FC = () => {
   return (
     <div className="admin-page">
-      <h1>Welcome Admin!</h1>
+      <h1>Welcome!</h1>
       <p>Manage recipes, orders, and users here.</p>
       
       <div className="options-container">
