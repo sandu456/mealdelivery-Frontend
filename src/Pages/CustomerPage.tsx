@@ -5,7 +5,7 @@ import './customer.css';
 const CustomerPage: React.FC = () => {
   return (
     <div className="customer-page">
-      <h1>Welcome Customer!</h1>
+      <h1>Welcome!</h1>
       <p>Explore delicious recipes and place your orders here.</p>
       
       <div className="options-container">
