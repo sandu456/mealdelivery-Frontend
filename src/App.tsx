@@ -5,14 +5,18 @@ import LogIn from './Pages/LogIn';
 import SignUp from './Pages/SignUp';
 import AboutUs from './Pages/AboutUs';
 import Contact from './Pages/Contact';
-import OrderMeal from './Components/OrderMeal';
-import PurchaseRecipe from './Components/PurchaseRecipe';
 import Vegan from './Pages/vegan';
 import Vegetarian from './Pages/vegetarian';
 import Pescatarian from './Pages/pescatarian';
 import AdminPage from './Pages/AdminPage';
 import CustomerPage from './Pages/CustomerPage';
+import OrderMeal from './Components/OrderMeal';
+import PurchaseRecipe from './Components/PurchaseRecipe';
+import ViewRecipies from './Components/ViewRecipies';
 import OrderButtons from './Components/OrderButtons';
+import ManageRecipes from "./Components/ManageRecipies";
+import ViewOrders from "./Components/ViewOrders";
+import ManageUsers from "./Components/ManageUsers";
 
 const App: React.FC = () => {
   return (
@@ -75,12 +79,16 @@ const App: React.FC = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/order-meal" element={<OrderMeal />} />
+          <Route path="/recipies" element={<ViewRecipies />} />
           <Route path="/purchase-recipe" element={<PurchaseRecipe />} />
           <Route path="/vegan" element={<Vegan />} />
           <Route path="/vegetarian" element={<Vegetarian />} />
           <Route path="/pescatarian" element={<Pescatarian />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/customer" element={<CustomerPage />} />
+          <Route path="/manage-recipies" element={<ManageRecipes />} />
+          <Route path="/manage-users" element={<ManageUsers />} />
+          <Route path="/view-orders" element={<ViewOrders />} />
         </Routes>
       </div>
 
