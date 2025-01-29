@@ -12,7 +12,7 @@ const CustomerPage: React.FC = () => {
         <div className="option">
           <h2>View Recipes</h2>
           <p>View your favorite recipes.</p>
-          <Link to="/view-recipies" className="option-link">
+          <Link to="recipies" className="option-link">
             View Recipes
           </Link>
         </div>
