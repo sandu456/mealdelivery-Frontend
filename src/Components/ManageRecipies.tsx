@@ -1,71 +1,91 @@
-import React, { useState } from "react";
-import "./manageRecipes.css"; // You can style this component using this CSS file.
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
+// Recipe interface to type the recipe data structure
 interface Recipe {
   id: number;
   name: string;
   description: string;
+  price: number;
 }
 
 const ManageRecipes: React.FC = () => {
-  const [recipes, setRecipes] = useState<Recipe[]>([
-    // Example recipes; replace with actual data fetching logic
-    { id: 1, name: "Spaghetti Bolognese", description: "A classic Italian dish." },
-    { id: 2, name: "Chicken Curry", description: "A spicy chicken curry with rice." },
-  ]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const [newRecipe, setNewRecipe] = useState({ name: "", description: "" });
-
-  // Add a new recipe
-  const addRecipe = () => {
-    const newId = recipes.length + 1;
-    const updatedRecipes = [...recipes, { ...newRecipe, id: newId }];
-    setRecipes(updatedRecipes);
-    setNewRecipe({ name: "", description: "" });
+  // Fetch recipes from your backend
+  const fetchRecipes = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get("/api/recipes"); // Your API to fetch recipes
+      setRecipes(response.data);
+    } catch (error) {
+      console.error("Error fetching recipes", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  // Remove a recipe by id
-  const removeRecipe = (id: number) => {
-    const updatedRecipes = recipes.filter((recipe) => recipe.id !== id);
-    setRecipes(updatedRecipes);
+  // Fetch the recipes when the component mounts
+  useEffect(() => {
+    fetchRecipes();
+  }, []);
+
+  const handleDelete = async (recipeId: number) => {
+    try {
+      await axios.delete(`/api/recipes/${recipeId}`); // Your API endpoint to delete a recipe
+      setRecipes(recipes.filter((recipe) => recipe.id !== recipeId)); // Update the state
+    } catch (error) {
+      console.error("Error deleting recipe", error);
+    }
   };
 
   return (
     <div className="manage-recipes">
-      <h1>Manage Recipes</h1>
-      
-      <div className="recipe-list">
-        <h2>Recipes List</h2>
-        <ul>
-          {recipes.map((recipe) => (
-            <li key={recipe.id} className="recipe-item">
-              <h3>{recipe.name}</h3>
-              <p>{recipe.description}</p>
-              <button onClick={() => removeRecipe(recipe.id)} className="delete-btn">
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
+      <h2>Manage Recipes</h2>
+      <p>Here you can add, edit, or delete recipes from the catalog.</p>
+
+      <div>
+        <Link to="/admin/add-recipe" className="button">
+          Add New Recipe
+        </Link>
       </div>
 
-      <div className="add-recipe-form">
-        <h2>Add New Recipe</h2>
-        <input
-          type="text"
-          value={newRecipe.name}
-          onChange={(e) => setNewRecipe({ ...newRecipe, name: e.target.value })}
-          placeholder="Recipe Name"
-        />
-        <textarea
-          value={newRecipe.description}
-          onChange={(e) => setNewRecipe({ ...newRecipe, description: e.target.value })}
-          placeholder="Recipe Description"
-        ></textarea>
-        <button onClick={addRecipe} className="add-btn">
-          Add Recipe
-        </button>
-      </div>
+      {loading ? (
+        <p>Loading recipes...</p>
+      ) : (
+        <table className="recipes-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {recipes.map((recipe) => (
+              <tr key={recipe.id}>
+                <td>{recipe.name}</td>
+                <td>{recipe.description}</td>
+                <td>${recipe.price.toFixed(2)}</td>
+                <td>
+                  <Link to={`/admin/edit-recipe/${recipe.id}`} className="button">
+                    Edit
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(recipe.id)}
+                    className="button delete-button"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };
