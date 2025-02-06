@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Link, BrowserRouter as Router, Routes, Route ,useLocation} from 'react-router-dom';
 import LogIn from './Pages/LogIn';
 import SignUp from './Pages/SignUp';
 import AboutUs from './Pages/AboutUs';
@@ -8,7 +8,7 @@ import Vegan from './Pages/vegan';
 import Vegetarian from './Pages/vegetarian';
 import Pescatarian from './Pages/pescatarian';
 import AdminPage from './Pages/AdminPage';
-import CustomerPage from './Pages/CustomerPage';
+import Order from './Pages/Order';
 import OrderMeal from './Components/OrderMeal';
 import PurchaseRecipe from './Components/PurchaseRecipe';
 import ViewRecipies from './Components/ViewRecipies';
@@ -28,13 +28,11 @@ const App: React.FC = () => {
       <div className="logo-title">
       <img src={logo} alt="Cook Book Logo" className="logo" />
         <h1>COOK BOOK</h1></div>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/admin">Admin</Link></li>
-          <li><Link to="/customer">Customer</Link></li>
-          <li><Link to="/about-us">About Us</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-        </ul>
+          <Link to="/" className="home">Home</Link>
+          <Link to="/admin" className="admin">Admin</Link>
+          <Link to="/order" className="order">Order</Link>
+          <Link to="/about-us" className="about-us">About Us</Link>
+          <Link to="/contact" className="contact">Contact</Link>
       </nav>
 
       <div className="app">
@@ -86,7 +84,7 @@ const App: React.FC = () => {
           <Route path="/vegetarian" element={<Vegetarian />} />
           <Route path="/pescatarian" element={<Pescatarian />} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/customer" element={<CustomerPage />} />
+          <Route path="/order" element={<Order />} />
           <Route path="/manage-recipies" element={<ManageRecipes />} />
           <Route path="/manage-users" element={<ManageUsers />} />
           <Route path="/view-orders" element={<ViewOrders />} />
