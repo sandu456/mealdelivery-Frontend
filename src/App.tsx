@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Link, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LogIn from './Pages/LogIn';
 import SignUp from './Pages/SignUp';
 import AboutUs from './Pages/AboutUs';
@@ -17,12 +16,18 @@ import OrderButtons from './Components/OrderButtons';
 import ManageRecipes from "./Components/ManageRecipies";
 import ViewOrders from "./Components/ViewOrders";
 import ManageUsers from "./Components/ManageUsers";
+import backgroundImage from "./assets/background.jpg";
+import logo from './assets/logo.jpg';
+
 
 const App: React.FC = () => {
   return (
     <Router>
+      <div className="background" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <nav className="navbar">
-        <h1>Meal Delivery</h1>
+      <div className="logo-title">
+      <img src={logo} alt="Cook Book Logo" className="logo" />
+        <h1>COOK BOOK</h1></div>
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/admin">Admin</Link></li>
@@ -39,14 +44,10 @@ const App: React.FC = () => {
             element={
               <div>
                 <h1>Welcome to Meal Delivery</h1>
-                <p>Explore our meal options below:</p>
+                <p>Homestyle meals, anytime</p>
                 <div className="login-signup">
-                  <Link to="/login" className="button login-button">
-                    Log In
-                  </Link>
-                  <Link to="/signup" className="button signup-button">
-                    Sign Up
-                  </Link>
+                  <Link to="/login" className="button login-button">Log In</Link>
+                  <Link to="/signup" className="button signup-button">Sign Up</Link>
                 </div>
                 {/* <div className="meal-categories">
                   <div className="category">
@@ -95,6 +96,7 @@ const App: React.FC = () => {
       <footer className="footer">
         <p>&copy; 2025 Meal Delivery and Recipe Sharing. All rights reserved.</p>
       </footer>
+      </div>
     </Router>
   );
 };

@@ -1,6 +1,5 @@
 .app {
   padding: 110px;
-  background-color: #200367;
 }
 
 .app h1 {
@@ -11,6 +10,19 @@
 .app p {
   text-align: center;
   color: hsl(0, 25%, 97%);
+}
+
+.background {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
 }
 
 .meal-categories {
@@ -49,18 +61,27 @@
 
 /* Navbar styling */
 .navbar {
-  background-color: #12082e;
   color: white;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items:center;
+}
+.logo-title {
+  display: flex;
   align-items: center;
+}
+
+.logo {
+  width: 70px; /* Adjust size as needed */
+  height: auto;
+  margin-right: 10px;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 2.5rem;
 }
 
 .navbar ul li a {
@@ -131,3 +152,4 @@
   background: linear-gradient(45deg, #1e7e34, #155d27); 
   transform: scale(1.05); 
 }
+
