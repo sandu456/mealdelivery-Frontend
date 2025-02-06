@@ -1,0 +1,76 @@
+.manage-users {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .users-list {
+    margin-bottom: 20px;
+    color: #f4f4f4;
+  }
+  
+  .users-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #571be3;
+  }
+  
+  .users-table th,
+  .users-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .users-table th {
+    background-color: #571be3;
+  }
+  
+  .role-btn,
+  .delete-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+  
+  .role-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .delete-btn {
+    background-color: red;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  .add-user-form {
+    color: #ceceef;
+  }
+  .add-user-form input,
+  .add-user-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  
+  .add-user-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .add-user-form button:hover {
+    background-color: #45a049;
+  }
+  

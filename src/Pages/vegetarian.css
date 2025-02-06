@@ -2,6 +2,15 @@
   padding: 20px;
   font-family: Arial, sans-serif;
   text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgb(57, 127, 224);
+  color: aqua;
 }
 
 .recipe-list {
@@ -29,6 +38,6 @@
 .button-group {
   display: flex;
   justify-content: center;
-  gap: 1cm; /* Adds 1cm space between the buttons */
+  gap: 1cm; 
   margin-top: 10px;
 }

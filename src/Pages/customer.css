@@ -1,0 +1,83 @@
+/* General styles for the customer page */
+.customer-page {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 10px;
+  background-color: #2d0478;
+}
+
+/* Heading styles */
+.customer-page h1 {
+  font-size: 2.5rem;
+  color: #e5dada;
+  margin-bottom: 20px;
+}
+
+.customer-page p {
+  font-size: 1.2rem;
+  color: #e7e7ea;
+  margin-bottom: 30px;
+}
+
+/* Container for all options */
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Individual option box */
+.option {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgb(217, 227, 227);
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.option h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.option p {
+  font-size: 1rem;
+  color: #2c1212;
+  margin-bottom: 15px;
+}
+
+/* Link button styles */
+.option-link {
+  text-decoration: none;
+  color: white;
+  background-color: #0e335a;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.option-link:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .option {
+    width: 90%;
+  }
+
+  .customer-page h1 {
+    font-size: 2rem;
+  }
+
+  .customer-page p {
+    font-size: 1rem;
+  }
+}
+

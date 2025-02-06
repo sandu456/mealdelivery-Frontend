@@ -1,45 +1,51 @@
-import React, { useState } from 'react';
-import './OrderMeal.css';
+import React, { useState } from "react";
+import "./OrderMeal.css";
 
 const OrderMeal: React.FC = () => {
-  const [meal, setMeal] = useState('');
-  const [paymentInfo, setPaymentInfo] = useState({ cardNumber: '', expiry: '', cvv: '' });
-  const [customerId, setCustomerId] = useState(''); // Assuming customerId is required
-  const [status, setStatus] = useState('Pending');
+  const [customerId, setCustomerId] = useState("");
+  const [mealId, setMealId] = useState("");
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [deliveryAddress, setDeliveryAddress] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState("Credit Card"); // Default to 'Credit Card'
+  const [isPaid, setIsPaid] = useState(false);
 
   const handleOrderSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Order payload
+    // Construct order payload based on the model
     const orderData = {
       customerId,
-      items: [{ name: meal, quantity: 1, price: 10.0 }], // Example price
-      total: 10.0, // Example total
-      status,
-      paymentInfo,
+      mealId,
+      totalAmount,
+      isPaid,
+      deliveryAddress,
+      paymentMethod,
     };
 
     try {
-      // Make a POST request to the API
-      const response = await fetch('http://localhost:8080/orders/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      // Send order data to the backend
+      const response = await fetch("http://localhost:8080/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(orderData),
       });
 
       if (response.ok) {
         const result = await response.json();
         alert(`Order placed successfully! Order ID: ${result.id}`);
-        // Clear form
-        setMeal('');
-        setPaymentInfo({ cardNumber: '', expiry: '', cvv: '' });
-        setCustomerId('');
+        // Clear form inputs after a successful order
+        setCustomerId("");
+        setMealId("");
+        setTotalAmount(0);
+        setDeliveryAddress("");
+        setPaymentMethod("Credit Card");
+        setIsPaid(false);
       } else {
-        alert('Failed to place order. Please try again.');
+        alert("Failed to place order. Please try again.");
       }
     } catch (error) {
-      console.error('Error placing order:', error);
-      alert('An error occurred while placing the order.');
+      console.error("Error placing order:", error);
+      alert("An error occurred while placing the order.");
     }
   };
 
@@ -51,50 +57,61 @@ const OrderMeal: React.FC = () => {
           Customer ID:
           <input
             type="text"
-            placeholder="Customer ID"
+            placeholder="Enter Customer ID"
             value={customerId}
             onChange={(e) => setCustomerId(e.target.value)}
             required
           />
         </label>
         <label>
-          Select Meal:
-          <select value={meal} onChange={(e) => setMeal(e.target.value)} required>
-            <option value="">--Select--</option>
-            <option value="Vegan Meal">Vegan Meal</option>
-            <option value="Vegetarian Meal">Vegetarian Meal</option>
-            <option value="Pescatarian Meal">Pescatarian Meal</option>
+          Meal ID:
+          <input
+            type="text"
+            placeholder="Enter Meal ID"
+            value={mealId}
+            onChange={(e) => setMealId(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Total Amount:
+          <input
+            type="number"
+            placeholder="Enter Total Amount"
+            value={totalAmount}
+            onChange={(e) => setTotalAmount(parseFloat(e.target.value))}
+            required
+          />
+        </label>
+        <label>
+          Delivery Address:
+          <textarea
+            placeholder="Enter Delivery Address"
+            value={deliveryAddress}
+            onChange={(e) => setDeliveryAddress(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Payment Method:
+          <select
+            value={paymentMethod}
+            onChange={(e) => setPaymentMethod(e.target.value)}
+            required
+          >
+            <option value="Credit Card">Credit Card</option>
+            <option value="PayPal">PayPal</option>
+            <option value="Cash on Delivery">Cash on Delivery</option>
           </select>
         </label>
         <label>
-          Card Number:
+          Paid:
           <input
-            type="text"
-            placeholder="Card Number"
-            value={paymentInfo.cardNumber}
-            onChange={(e) => setPaymentInfo({ ...paymentInfo, cardNumber: e.target.value })}
-            required
+            type="checkbox"
+            checked={isPaid}
+            onChange={(e) => setIsPaid(e.target.checked)}
           />
-        </label>
-        <label>
-          Expiry Date:
-          <input
-            type="text"
-            placeholder="MM/YY"
-            value={paymentInfo.expiry}
-            onChange={(e) => setPaymentInfo({ ...paymentInfo, expiry: e.target.value })}
-            required
-          />
-        </label>
-        <label>
-          CVV:
-          <input
-            type="text"
-            placeholder="CVV"
-            value={paymentInfo.cvv}
-            onChange={(e) => setPaymentInfo({ ...paymentInfo, cvv: e.target.value })}
-            required
-          />
+          <span>Is Paid</span>
         </label>
         <button type="submit">Place Order</button>
       </form>
