@@ -6,26 +6,9 @@ const Contact: React.FC = () => {
     <div className="contact-page">
       <div className="contact-header">
         <h1>Contact Us</h1>
-        <p>We would love to hear from you! Reach out to us with your questions, feedback, or suggestions.</p>
       </div>
 
       <div className="contact-content">
-        <div className="contact-form">
-          <h2>Send Us a Message</h2>
-          <form>
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" placeholder="Your Name" required />
-
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" placeholder="Your Email" required />
-
-            <label htmlFor="message">Message</label>
-            <textarea id="message" placeholder="Your Message" rows={5} required></textarea>
-
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
-
         <div className="contact-details">
           <h2>Our Contact Details</h2>
           <p>
