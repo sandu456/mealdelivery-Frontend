@@ -47,29 +47,6 @@ const App: React.FC = () => {
                   <Link to="/login" className="button login-button">Log In</Link>
                   <Link to="/signup" className="button signup-button">Sign Up</Link>
                 </div>
-                {/* <div className="meal-categories">
-                  <div className="category">
-                    <h2>Vegan</h2>
-                    <p>Discover our delicious vegan recipes.</p>
-                    <Link to="/vegan" className="category-link">
-                      Explore Vegan
-                    </Link>
-                  </div>
-                  <div className="category">
-                    <h2>Vegetarian</h2>
-                    <p>Taste our wide variety of vegetarian meals.</p>
-                    <Link to="/vegetarian" className="category-link">
-                      Explore Vegetarian
-                    </Link>
-                  </div>
-                  <div className="category">
-                    <h2>Pescatarian</h2>
-                    <p>Enjoy fresh pescatarian dishes.</p>
-                    <Link to="/pescatarian" className="category-link">
-                      Explore Pescatarian
-                    </Link>
-                  </div>
-                </div> */}
               </div>
             }
           />
