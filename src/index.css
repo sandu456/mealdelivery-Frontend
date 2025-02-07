@@ -1,6 +1,16 @@
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px; 
+  height: auto;
+  margin-right: 10px;
+}
+
 .app {
   padding: 110px;
-  background-color: #200367;
 }
 
 .app h1 {
@@ -8,12 +18,12 @@
   color: #f1e6e6;
 }
 
-.app p {
+.app h2 {
   text-align: center;
   color: hsl(0, 25%, 97%);
 }
 
-.meal-categories {
+/* .meal-categories {
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -45,41 +55,32 @@
 
 .category-link:hover {
   text-decoration: underline;
-}
+} */
 
 /* Navbar styling */
 .navbar {
-  background-color: #12082e;
-  color: white;
-  padding: 1rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;  /* Spread items across the navbar */
+  background-color: #1f0d6e;  /* Dark background for the navbar */
+  padding: 1rem;  /* Add space around the navbar */
+  position: sticky;  /* Make navbar sticky at the top */
 }
 
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
+.nav-button {
+  background-color: #4CAF50;  /* Green background for buttons */
+  color: white;  /* White text color */
+  padding: 10px 15px;  /* Reduced padding for less vertical space */
+  border: none;  /* Remove border */
+  cursor: pointer;  /* Pointer cursor on hover */
+  font-size: 16px;  /* Font size */
+  border-radius: 5px;  /* Rounded corners */
+  margin: 0 5px;  /* Reduced margin between buttons */
+  transition: background-color 0.3s ease;  /* Smooth background change */
 }
 
-.navbar ul li a {
-  text-decoration: none;
-  color: white;
-}
-
-/* Footer styling */
-.footer-bar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #12082e;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
-  font-family: 'Arial', sans-serif;
-  font-size: 0.9rem;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+.nav-button:hover {
+  background-color: #45a049;  /* Darker green on hover */
 }
 
 .footer {
@@ -131,3 +132,77 @@
   background: linear-gradient(45deg, #1e7e34, #155d27); 
   transform: scale(1.05); 
 }
+
+.background {
+  background-image: url('./assets/background.jpg');
+  background-size: cover; 
+  background-position: center center; 
+  background-attachment: fixed; 
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Space out the logo and buttons */
+  align-items: center;
+  background-color: #333; /* Dark background color for the navbar */
+  padding: 10px 20px; /* Padding around navbar */
+  position: sticky;
+  top: 0; /* Keeps the navbar fixed at the top */
+  z-index: 1000; /* Makes sure the navbar is always on top */
+}
+
+/* Logo and title */
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px; /* Logo size */
+  height: auto;
+  margin-right: 10px; /* Space between logo and title */
+}
+
+h1 {
+  font-size: 24px;
+  color: white; /* White text for the title */
+  margin: 0; /* Removes any default margin */
+}
+
+/* Styling for the navbar links (buttons) */
+.navbar a {
+  text-decoration: none;
+  color: white; /* White text color */
+  margin: 0 15px; /* Space between buttons */
+  padding: 8px 16px; /* Button padding */
+  font-size: 18px;
+  border-radius: 4px; /* Rounded corners for buttons */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.navbar a:hover {
+  background-color: #3c34d4; /* Green background color on hover */
+  color: white; /* Text color remains white on hover */
+}
+
+
+

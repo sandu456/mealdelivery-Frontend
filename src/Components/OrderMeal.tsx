@@ -7,7 +7,8 @@ const OrderMeal: React.FC = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [deliveryAddress, setDeliveryAddress] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("Credit Card"); // Default to 'Credit Card'
-  const [isPaid, setIsPaid] = useState(false);
+
+  const [billPrice, setBillPrice] = useState<number | null>(null);
 
   const handleOrderSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,7 +18,6 @@ const OrderMeal: React.FC = () => {
       customerId,
       mealId,
       totalAmount,
-      isPaid,
       deliveryAddress,
       paymentMethod,
     };
@@ -32,14 +32,17 @@ const OrderMeal: React.FC = () => {
 
       if (response.ok) {
         const result = await response.json();
-        alert(`Order placed successfully! Order ID: ${result.id}`);
+        setBillPrice(result.billPrice); // Store backend bill price
+        alert(`Order placed successfully! Order ID: ${result.id}\nTotal Bill: $${result.billPrice}`);
+        
+
+      
         // Clear form inputs after a successful order
         setCustomerId("");
         setMealId("");
         setTotalAmount(0);
         setDeliveryAddress("");
         setPaymentMethod("Credit Card");
-        setIsPaid(false);
       } else {
         alert("Failed to place order. Please try again.");
       }
@@ -97,22 +100,22 @@ const OrderMeal: React.FC = () => {
           <select
             value={paymentMethod}
             onChange={(e) => setPaymentMethod(e.target.value)}
-            required
-          >
-            <option value="Credit Card">Credit Card</option>
-            <option value="PayPal">PayPal</option>
+            required>
             <option value="Cash on Delivery">Cash on Delivery</option>
           </select>
         </label>
+       
         <label>
-          Paid:
+          Total Payment:
           <input
-            type="checkbox"
-            checked={isPaid}
-            onChange={(e) => setIsPaid(e.target.checked)}
-          />
-          <span>Is Paid</span>
+            type="text"
+            placeholder="Auto-calculated"
+            value={billPrice !== null ? '$${billPrice.toFixed(2)}' : ''}
+            readOnly
+/>
         </label>
+
+
         <button type="submit">Place Order</button>
       </form>
     </div>
@@ -120,3 +123,7 @@ const OrderMeal: React.FC = () => {
 };
 
 export default OrderMeal;
+
+
+
+
