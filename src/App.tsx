@@ -41,8 +41,8 @@ const App: React.FC = () => {
             path="/"
             element={
               <div>
-                <h1>Welcome to Meal Delivery</h1>
-                <p>Homestyle meals, anytime</p>
+                <h1 style={{ fontSize: "3rem", fontWeight: "bold" }}>Welcome to COOK BOOK</h1>
+                <h2>Homestyle meals, anytime</h2>
                 <div className="login-signup">
                   <Link to="/login" className="button login-button">Log In</Link>
                   <Link to="/signup" className="button signup-button">Sign Up</Link>
