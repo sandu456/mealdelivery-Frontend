@@ -14,19 +14,12 @@
     color: #f3f2f2;
   }
   
-  .contact-header p {
-    font-size: 1.2rem;
-    color: #c3a8a8;
-  }
-  
   .contact-content {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
   }
-  
-  .contact-form,
   
   .contact-details {
     background: #baaae6;
@@ -37,42 +30,10 @@
     max-width: 400px;
   }
   
-  .contact-form h2,
   .contact-details h2 {
     font-size: 1.8rem;
     color: #007bff;
     margin-bottom: 15px;
-  }
-  
-  .contact-form label {
-    font-size: 1rem;
-    color: #0a0a0a;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 15px;
-  }
-  
-  .contact-form button {
-    padding: 1px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .contact-form button:hover {
-    background-color: #0056b3;
   }
   
   .contact-details p {
