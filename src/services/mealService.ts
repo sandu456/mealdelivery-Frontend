@@ -1,86 +1,90 @@
-// // import { meals } from '@/types/mealTypes';
-// import axiosInstance from './axios';
+import axios from "axios";
 
-// const BASE_PATH = '/meals'
+const API_URL = "http://localhost:8080/meals"; // Update this if your backend URL is different
 
-// interface CreateReqOrder {
-//     id: string
-//     name: string
-//     description: string
-//     price: number
-//     isAvailable: boolean
+// Set authentication token (Modify this based on your authentication mechanism)
+const getAuthHeaders = () => {
+  const token = localStorage.getItem("token"); // Adjust based on how you store the token
+  return {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  };
+};
 
-// }
+// Fetch all meals (Accessible by ADMIN and CUSTOMER)
+export const getMeals = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/get`, getAuthHeaders());
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching meals:", error);
+    throw error;
+  }
+};
 
-// interface UpdateReqOrder {
-//     id: string
-//     name: string
-//     description: string
-//     price: number
-//     isAvailable: boolean
+// Fetch a meal by ID (Accessible by ADMIN and CUSTOMER)
+export const getMealById = async (id: string) => {
+  try {
+    const response = await axios.get(`${API_URL}/${id}`, getAuthHeaders());
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching meal with ID ${id}:`, error);
+    throw error;
+  }
+};
 
+// Add a new meal (Only ADMIN can do this)
+export const addMeal = async (meal: {
+  name: string;
+  description: string;
+  price: number;
+  isAvailable: boolean;
+}) => {
+  try {
+    const response = await axios.post(`${API_URL}/save`, meal, getAuthHeaders());
+    return response.data;
+  } catch (error) {
+    console.error("Error adding meal:", error);
+    throw error;
+  }
+};
 
-// }
+// Update a meal by ID (Only ADMIN can do this)
+export const updateMeal = async (id: string, meal: {
+  name: string;
+  description: string;
+  price: number;
+  isAvailable: boolean;
+}) => {
+  try {
+    const response = await axios.put(`${API_URL}/${id}`, meal, getAuthHeaders());
+    return response.data;
+  } catch (error) {
+    console.error(`Error updating meal with ID ${id}:`, error);
+    throw error;
+  }
+};
 
-// export const mealService = {
-//     // Save a meal to the database
-//     async saveMeal(order: CreateReqOrder) {
-//         try {
-//         const response = await axiosInstance.post(`${BASE_PATH}/save`, meal);
-//             return response.data;
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     },
+// Delete a meal by ID (Only ADMIN can do this)
+export const deleteMeal = async (id: string) => {
+  try {
+    const response = await axios.delete(`${API_URL}/${id}`, getAuthHeaders());
+    return response.data;
+  } catch (error) {
+    console.error(`Error deleting meal with ID ${id}:`, error);
+    throw error;
+  }
+};
 
-//     // Fetch Order - get all orders
-//     async fetchOrder() {
-//         try{
-//         const response = await axiosInstance.get(`${BASE_PATH}/get`);
-//             return response.data;
-//         } catch(error) {
-//             console.log(error);
-//         }
-//     },
-
-//     // Fetch Single Order
-//     async getOrdersByCustomerId(id: string) {
-//         try {
-//             const response = await axiosInstance.get(`${BASE_PATH}/${id}`);
-//             return response.data;
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     },
-
-//     async fetchOrderById(customerId: string) {
-//         try {
-//             const response = await axiosInstance.get(`${BASE_PATH}/customer/${customerId}`);
-//             return response.data;
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     },
-
-//     // Update Order
-//     async updateOrder(order: UpdateReqOrder) {
-//         if (!order.id) {
-//             new Error('Order ID is required for update');
-//         }
-//         try {
-//             const response = await axiosInstance.put(`${BASE_PATH}/${order.id}`, order);
-//             return response.data;
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     },
-
-//     // Delete Order
-//     async deleteOrder(id: string) {
-//         try {
-//             await axiosInstance.delete(`${BASE_PATH}/${id}`);
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     },
-// };
+// Get only available meals (For customers)
+export const getAvailableMeals = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/available`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching available meals:", error);
+    throw error;
+  }
+};
