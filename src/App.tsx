@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, BrowserRouter as Router, Routes, Route ,useLocation} from 'react-router-dom';
+import { Link, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LogIn from './Pages/LogIn';
 import SignUp from './Pages/SignUp';
 import AboutUs from './Pages/AboutUs';
@@ -12,7 +12,7 @@ import Order from './Pages/Order';
 import OrderMeal from './Components/OrderMeal';
 import PurchaseRecipe from './Components/PurchaseRecipe';
 import ViewRecipies from './Components/ViewRecipies';
-import OrderButtons from './Components/OrderButtons';
+// import OrderButtons from './Components/OrderButtons';
 import ManageRecipes from "./Components/ManageRecipies";
 import ViewOrders from "./Components/ViewOrders";
 import ManageUsers from "./Components/ManageUsers";
@@ -75,6 +75,7 @@ const App: React.FC = () => {
           />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
+
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/order-meal" element={<OrderMeal />} />

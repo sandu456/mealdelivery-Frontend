@@ -17,7 +17,6 @@ const OrderMeal: React.FC = () => {
       customerId,
       mealId,
       totalAmount,
-      isPaid,
       deliveryAddress,
       paymentMethod,
     };
@@ -39,7 +38,6 @@ const OrderMeal: React.FC = () => {
         setTotalAmount(0);
         setDeliveryAddress("");
         setPaymentMethod("Credit Card");
-        setIsPaid(false);
       } else {
         alert("Failed to place order. Please try again.");
       }
@@ -97,21 +95,9 @@ const OrderMeal: React.FC = () => {
           <select
             value={paymentMethod}
             onChange={(e) => setPaymentMethod(e.target.value)}
-            required
-          >
-            <option value="Credit Card">Credit Card</option>
-            <option value="PayPal">PayPal</option>
+            required>
             <option value="Cash on Delivery">Cash on Delivery</option>
           </select>
-        </label>
-        <label>
-          Paid:
-          <input
-            type="checkbox"
-            checked={isPaid}
-            onChange={(e) => setIsPaid(e.target.checked)}
-          />
-          <span>Is Paid</span>
         </label>
         <button type="submit">Place Order</button>
       </form>
