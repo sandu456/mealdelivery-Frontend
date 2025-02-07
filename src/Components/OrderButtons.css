@@ -1,35 +1,52 @@
+/* Style for the button group */
 .button-group {
-    display: flex;
-    justify-content: center;
-    gap: 1cm;
-    margin-top: 1rem;
-  }
-  
-  .order-button,
-  .purchase-button {
-    padding: 0.8rem 1.2rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .order-button {
-    background-color: #28a745;
-    color: white;
-  }
-  
-  .order-button:hover {
-    background-color: #218838;
-  }
-  
-  .purchase-button {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .purchase-button:hover {
-    background-color: #0056b3;
-  }
-  
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Common style for all buttons */
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Style for the Order Now button */
+.order-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.order-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+/* Style for the Purchase Recipe button */
+.purchase-button {
+  background-color: #ff9800;
+  color: white;
+}
+
+.purchase-button:hover {
+  background-color: #e68900;
+  transform: translateY(-2px);
+}
+
+/* Style for the Review button */
+.review-button {
+  background-color: #2196f3;
+  color: white;
+}
+
+.review-button:hover {
+  background-color: #1976d2;
+  transform: translateY(-2px);
+}
