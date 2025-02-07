@@ -7,8 +7,8 @@ const OrderMeal: React.FC = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [deliveryAddress, setDeliveryAddress] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("Credit Card"); // Default to 'Credit Card'
+
   const [billPrice, setBillPrice] = useState<number | null>(null);
-  
 
   const handleOrderSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
