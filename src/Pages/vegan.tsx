@@ -9,15 +9,21 @@ const Vegan = () => {
     { id: 2, name: 'Vegan Salad' },
     { id: 3, name: 'Tofu Stir-fry' },
   ];
+// Handler for when the user orders a recipe
+const handleOrder = (recipeName: string) => {
+  alert(`You ordered ${recipeName}!`);
+};
 
-  const handleOrder = (recipeName: string) => {
-    alert(`You ordered ${recipeName}!`);
-  };
+// Handler for when the user purchases the recipe
+const handlePurchase = (recipeName: string) => {
+  alert(`You purchased the recipe for ${recipeName}!`);
+};
 
-  const handlePurchase = (recipeName: string) => {
-    alert(`You purchased the recipe for ${recipeName}!`);
-  };
-
+// Handler for reviewing a recipe
+const handleReview = (recipeName: string) => {
+  alert(`You can now leave a review for ${recipeName}.`);
+};
+ 
   return (
     <div className="vegan">
       <h2>Vegan Recipes</h2>
@@ -25,10 +31,12 @@ const Vegan = () => {
         {veganRecipes.map((recipe) => (
           <div key={recipe.id} className="recipe-card">
             <h3>{recipe.name}</h3>
-            {/* <OrderButtons 
+            {/* Ensure the OrderButtons component is passed the correct handler */}
+            <OrderButtons 
               onOrder={() => handleOrder(recipe.name)} 
               onPurchase={() => handlePurchase(recipe.name)} 
-            /> */}
+              onReview={() => handleReview(recipe.name)} // Add review handler
+            />
           </div>
         ))}
       </div>
