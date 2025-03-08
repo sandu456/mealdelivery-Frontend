@@ -1,27 +1,48 @@
 import React, { useState } from 'react';
 import './LogIn.css';
+import axios from "axios";
 
 const LogIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Logged in with email: ${email}');
     
+    try {
+      const response = await axios.post("http://localhost:8080/api/auth/signin", {
+        username,
+        password,
+      });
+
+      // Save the token in localStorage (for future authenticated requests)
+      localStorage.setItem("token", response.data.token);
+
+      setMessage("Login successful! Redirecting...");
+      // Redirect user after successful login (modify as needed)
+      setTimeout(() => {
+        window.location.href = "/dashboard"; // Change '/dashboard' to your actual route
+      }, 2000);
+      
+    } catch (error: any) {
+      setMessage(error.response?.data?.message || "Invalid credentials. Try again.");
+    }
   };
+
 
   return (
     <div className="login">
       <h2>Log In</h2>
+      {message && <p className="message">{message}</p>}
       <form onSubmit={handleSubmit}>
         <label>
-          Email:
+          Username:
           <input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+            placeholder="Enter your username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </label>
         <label>
