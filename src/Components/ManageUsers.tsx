@@ -1,76 +1,111 @@
-import React, { useState } from "react";
-import "./manageUsers.css"; // You can style this component using this CSS file.
 
-interface User {
-  id: number;
+import "./manageUsers.css"; // You can style this component using this CSS file.
+import React, { useEffect, useState } from "react";
+
+interface Customer {
+  id: string;
   name: string;
   email: string;
-  role: string;
-}
+  password:string;
+  }
 
-const ManageUsers: React.FC = () => {
-  // Example users; replace with actual data fetching logic
-  const [users, setUsers] = useState<User[]>([
-    { id: 1, name: "John Doe", email: "john@example.com", role: "Admin" },
-    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "Customer" },
-  ]);
-
-  const [newUser, setNewUser] = useState({ name: "", email: "", role: "Customer" });
-
-  // Add a new user
-  const addUser = () => {
-    const newId = users.length + 1;
-    const updatedUsers = [...users, { ...newUser, id: newId }];
-    setUsers(updatedUsers);
-    setNewUser({ name: "", email: "", role: "Customer" });
-  };
-
-  // Remove a user by id
-  const removeUser = (id: number) => {
-    const updatedUsers = users.filter((user) => user.id !== id);
-    setUsers(updatedUsers);
-  };
-
-  // Update user role
-  const updateUserRole = (id: number, role: string) => {
-    const updatedUsers = users.map((user) =>
-      user.id === id ? { ...user, role } : user
-    );
-    setUsers(updatedUsers);
-  };
-
+  const ManageUsers: React.FC = () => {
+    const [customers, setCustomers] = useState<Customer[]>([]);
+    const [newCustomer, setNewCustomer] = useState({ name: "", email: "", password: "" });
+  
+    // Fetch customers from the backend
+    useEffect(() => {
+      const fetchCustomers = async () => {
+        try {
+          const response = await fetch("http://localhost:8080/customers", {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`, // If using JWT authentication
+            },
+          });
+          if (!response.ok) throw new Error("Failed to fetch customers");
+          const data = await response.json();
+          setCustomers(data);
+        } catch (error) {
+          console.error("Error fetching customers:", error);
+        }
+      };
+  
+      fetchCustomers();
+    }, []);
+  
+    // Add a new customer
+    const addCustomer = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/customers/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newCustomer),
+        });
+  
+        if (!response.ok) {
+          alert("Failed to add customer.");
+          return;
+        }
+  
+        alert("Customer added successfully!");
+        setNewCustomer({ name: "", email: "",password:"" });
+  
+        // Refresh customers list
+        const updatedResponse = await fetch("http://localhost:8080/customers");
+        const updatedData = await updatedResponse.json();
+        setCustomers(updatedData);
+      } catch (error) {
+        console.error("Error adding customer:", error);
+      }
+    };
+  
+    // Delete a customer
+    const deleteCustomer = async (id: string) => {
+      try {
+        const response = await fetch(`http://localhost:8080/customers/${id}`, {
+          method: "DELETE",
+        });
+  
+        if (!response.ok) {
+          alert("Failed to delete customer.");
+          return;
+        }
+  
+        alert("Customer deleted successfully!");
+        setCustomers(customers.filter((customer) => customer.id !== id));
+      } catch (error) {
+        console.error("Error deleting customer:", error);
+      }
+    };
   return (
     <div className="manage-users">
-      <h1>Manage Users</h1>
+      <h1>Manage Customers</h1>
 
       <div className="users-list">
-        <h2>User Accounts</h2>
+        <h2>Customer Accounts</h2>
         <table className="users-table">
           <thead>
             <tr>
-              <th>User ID</th>
+              <th>Customer Id</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Role</th>
+              <th>Password</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.role}</td>
+            {customers.map((customer) => (
+              <tr key={customer.id}>
+                <td>{customer.id}</td>
+                <td>{customer.name}</td>
+                <td>{customer.email}</td>
+                <td>{customer.password}</td>
                 <td>
+          
                   <button
-                    onClick={() => updateUserRole(user.id, user.role === "Admin" ? "Customer" : "Admin")}
-                    className="role-btn"
-                  >
-                    Make {user.role === "Admin" ? "Customer" : "Admin"}
-                  </button>
-                  <button
-                    onClick={() => removeUser(user.id)}
+                    onClick={() => deleteCustomer(customer.id)}
                     className="delete-btn"
                   >
                     Delete
@@ -86,25 +121,26 @@ const ManageUsers: React.FC = () => {
         <h2>Add New User</h2>
         <input
           type="text"
-          value={newUser.name}
-          onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+          value={newCustomer.name}
+          onChange={(e) => setNewCustomer({ ...newCustomer, name: e.target.value })}
           placeholder="Name"
         />
         <input
           type="email"
-          value={newUser.email}
-          onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
+          value={newCustomer.email}
+          onChange={(e) => setNewCustomer({ ...newCustomer, email: e.target.value })}
           placeholder="Email"
         />
-        <select
-          value={newUser.role}
-          onChange={(e) => setNewUser({ ...newUser, role: e.target.value })}
-        >
-          <option value="Customer">Customer</option>
-          <option value="Admin">Admin</option>
-        </select>
-        <button onClick={addUser} className="add-btn">
-          Add User
+        <input
+            type="password"
+            value={newCustomer.password}
+            onChange={(e) => setNewCustomer({ ...newCustomer, password: e.target.value })}
+            placeholder="password"
+          />
+       
+        
+        <button onClick={addCustomer} className="add-btn">
+          Add Customer
         </button>
       </div>
     </div>
