@@ -17,6 +17,11 @@ const Vegetarian = () => {
   const handlePurchase = (recipeName: string) => {
     alert(`You purchased the recipe for ${recipeName}!`);
   };
+  // Handler for reviewing a recipe
+const handleReview = (recipeName: string) => {
+  alert(`You can now leave a review for ${recipeName}.`);
+};
+ 
 
   return (
     <div className="vegetarian">
@@ -25,10 +30,12 @@ const Vegetarian = () => {
         {vegetarianRecipes.map((recipe) => (
           <div key={recipe.id} className="recipe-card">
             <h3>{recipe.name}</h3>
-            {/* <OrderButtons 
+            {/* Ensure the OrderButtons component is passed the correct handler */}
+            <OrderButtons 
               onOrder={() => handleOrder(recipe.name)} 
               onPurchase={() => handlePurchase(recipe.name)} 
-            /> */}
+              onReview={() => handleReview(recipe.name)} // Add review handler
+            />
           </div>
         ))}
       </div>
