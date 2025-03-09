@@ -23,7 +23,7 @@ const OrderButtons: React.FC<OrderButtonsProps> = ({ onOrder, onPurchase, onRevi
 
   const handleReview = () => {
     onReview(); // Trigger the passed-in onReview function
-    navigate('/review'); // Navigate to the review page (adjust the route accordingly)
+    navigate('/reviews-container'); // Navigate to the review page (adjust the route accordingly)
   };
 
   return (
