@@ -11,11 +11,11 @@ const Vegetarian = () => {
   ];
 
   const handleOrder = (recipeName: string) => {
-    alert(`You ordered ${recipeName}!`);
+    alert(`You can order ${recipeName}!`);
   };
 
   const handlePurchase = (recipeName: string) => {
-    alert(`You purchased the recipe for ${recipeName}!`);
+    alert(`You can purchase the recipe for ${recipeName}!`);
   };
   // Handler for reviewing a recipe
 const handleReview = (recipeName: string) => {
