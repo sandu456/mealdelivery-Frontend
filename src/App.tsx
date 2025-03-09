@@ -18,7 +18,7 @@ import ViewOrders from "./Components/ViewOrders";
 import ManageUsers from "./Components/ManageUsers";
 import backgroundImage from "./assets/background.jpg";
 import logo from './assets/logo.jpg';
-
+import Reviews from './Components/Reviews';
 
 const App: React.FC = () => {
   return (
@@ -29,8 +29,8 @@ const App: React.FC = () => {
       <img src={logo} alt="Cook Book Logo" className="logo" />
         <h1>COOK BOOK</h1></div>
           <Link to="/" className="home">Home</Link>
-          <Link to="/admin" className="admin">Admin</Link>
-          <Link to="/order" className="order">Order</Link>
+          {/* <Link to="/admin" className="admin">Admin</Link>
+          <Link to="/order" className="order">Order</Link> */}
           <Link to="/about-us" className="about-us">About Us</Link>
           <Link to="/contact" className="contact">Contact</Link>
       </nav>
@@ -66,6 +66,8 @@ const App: React.FC = () => {
           <Route path="/manage-recipies" element={<ManageRecipes />} />
           <Route path="/manage-users" element={<ManageUsers />} />
           <Route path="/view-orders" element={<ViewOrders />} />
+          <Route path="/reviews-container" element={<Reviews/>} />
+          {/* <Route path="/order-button" element={<OrderButtons/>} /> */}
         </Routes>
       </div>
 
