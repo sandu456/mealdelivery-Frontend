@@ -2,23 +2,29 @@ import React, { useState } from 'react';
 import './Signup.css';
 
 const Signup: React.FC = () => {
-  const [customer, setCustomer] = useState({ name: '', email: '', phone: '', password: '' });
+  const [user, setUser] = useState({ username: '', email: '', role: 'customer', password: '' });
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/customers/create', {
+      const response = await fetch('http://localhost:8080/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(customer),
+        body: JSON.stringify({
+          username: user.username,
+          email: user.email,
+          roles: [user.role],
+          password: user.password // Backend expects an array of roles
+        }),
       });
 
       if (response.ok) {
         alert('Signup successful! You can now log in.');
-        setCustomer({ name: '', email: '', phone: '', password: '' });
+        setUser({ username: '', email: '', role: 'customer', password: '' });
       } else {
-        alert('Signup failed. Please try again.');
+        const errorData = await response.json();
+        alert(errorData.message || 'Signup failed. Please try again.');
       }
     } catch (error) {
       console.error('Error during signup:', error);
@@ -31,12 +37,12 @@ const Signup: React.FC = () => {
       <h2>Signup</h2>
       <form onSubmit={handleSignup}>
         <label>
-          Name:
+          Username:
           <input
             type="text"
-            placeholder="Enter your name"
-            value={customer.name}
-            onChange={(e) => setCustomer({ ...customer, name: e.target.value })}
+            placeholder="Enter your username"
+            value={user.username}
+            onChange={(e) => setUser({ ...user, username: e.target.value })}
             required
           />
         </label>
@@ -45,28 +51,30 @@ const Signup: React.FC = () => {
           <input
             type="email"
             placeholder="Enter your email"
-            value={customer.email}
-            onChange={(e) => setCustomer({ ...customer, email: e.target.value })}
+            value={user.email}
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
             required
           />
         </label>
         <label>
-          Phone:
-          <input
-            type="text"
-            placeholder="Enter your phone number"
-            value={customer.phone}
-            onChange={(e) => setCustomer({ ...customer, phone: e.target.value })}
+          Role:
+          <select
+            value={user.role}
+            onChange={(e) => setUser({ ...user, role: e.target.value })}
             required
-          />
+          >
+            <option value="customer">Customer</option>
+            <option value="admin">Admin</option>
+          </select>
         </label>
+        
         <label>
           Password:
           <input
             type="password"
             placeholder="Enter a password"
-            value={customer.password}
-            onChange={(e) => setCustomer({ ...customer, password: e.target.value })}
+            value={user.password}
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
             required
           />
         </label>

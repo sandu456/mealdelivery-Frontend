@@ -39,8 +39,7 @@ export const getCustomerById = async (id: string) => {
 export const createCustomer = async (customer: {
   name: string;
   email: string;
-  phone: string;
-  address: string;
+  password: string;
 }) => {
   try {
     const response = await axios.post(`${API_URL}/create`, customer, getAuthHeaders());
@@ -77,3 +76,11 @@ export const deleteCustomer = async (id: string) => {
     throw error;
   }
 };
+const customerService= {
+  getCustomers,
+  getCustomerById,
+  createCustomer,
+  updateCustomer,
+  deleteCustomer,
+};
+export default customerService;

@@ -12,12 +12,12 @@ const Pescatarian = () => {
 
   // Handler for when the user orders a recipe
   const handleOrder = (recipeName: string) => {
-    alert(`You ordered ${recipeName}!`);
+    alert(`You can order ${recipeName}!`);
   };
 
   // Handler for when the user purchases the recipe
   const handlePurchase = (recipeName: string) => {
-    alert(`You purchased the recipe for ${recipeName}!`);
+    alert(`You can purchase the recipe for ${recipeName}!`);
   };
 
   // Handler for reviewing a recipe
