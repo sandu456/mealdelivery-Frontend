@@ -1,4 +1,4 @@
-/* Reset some default styles */
+
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -6,7 +6,6 @@ body {
   color: #100f0f;
 }
 
-/* Container for the signup page */
 .signup {
   width: 100%;
   max-width: 400px;
@@ -17,7 +16,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Heading style */
+
 .signup h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -25,14 +24,14 @@ body {
   font-size: 24px;
 }
 
-/* Style the form */
+
 form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-/* Label styles */
+
 label {
   display: flex;
   flex-direction: column;
@@ -40,7 +39,7 @@ label {
   color: #0d0c0c;
 }
 
-/* Input styles */
+
 input {
   padding: 10px;
   font-size: 14px;
@@ -50,12 +49,12 @@ input {
   transition: border-color 0.3s;
 }
 
-/* Change border color on focus */
+
 input:focus {
   border-color: #007bff;
 }
 
-/* Button styles */
+
 button {
   padding: 10px 15px;
   font-size: 16px;
@@ -67,12 +66,12 @@ button {
   transition: background 0.3s;
 }
 
-/* Hover effect for button */
+
 button:hover {
   background: #0056b3;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 480px) {
   .signup {
     padding: 15px;

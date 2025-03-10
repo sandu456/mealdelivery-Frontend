@@ -1,6 +1,6 @@
 import React from 'react';
-import './vegan.css'; // Ensure this CSS file exists and is properly styled
-import OrderButtons from '../Components/OrderButtons'; // Ensure OrderButtons component exists
+import './vegan.css'; 
+import OrderButtons from '../Components/OrderButtons'; 
 
 const Vegan = () => {
   // List of vegan recipes
@@ -9,17 +9,17 @@ const Vegan = () => {
     { id: 2, name: 'Vegan Salad' },
     { id: 3, name: 'Tofu Stir-fry' },
   ];
-// Handler for when the user orders a recipe
+
 const handleOrder = (recipeName: string) => {
   alert(`You can order ${recipeName}!`);
 };
 
-// Handler for when the user purchases the recipe
+
 const handlePurchase = (recipeName: string) => {
   alert(`You can purchase the recipe for ${recipeName}!`);
 };
 
-// Handler for reviewing a recipe
+
 const handleReview = (recipeName: string) => {
   alert(`You can now leave a review for ${recipeName}.`);
 };
@@ -35,7 +35,7 @@ const handleReview = (recipeName: string) => {
             <OrderButtons 
               onOrder={() => handleOrder(recipe.name)} 
               onPurchase={() => handlePurchase(recipe.name)} 
-              onReview={() => handleReview(recipe.name)} // Add review handler
+              onReview={() => handleReview(recipe.name)} 
             />
           </div>
         ))}

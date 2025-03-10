@@ -1,9 +1,9 @@
 import React from 'react';
-import './vegetarian.css'; // Ensure this CSS file exists and is properly styled
-import OrderButtons from '../Components/OrderButtons'; // Ensure OrderButtons component exists
+import './vegetarian.css'; 
+import OrderButtons from '../Components/OrderButtons';
 
 const Vegetarian = () => {
-  // List of vegetarian recipes
+ 
   const vegetarianRecipes = [
     { id: 1, name: 'Vegetarian Burger' },
     { id: 2, name: 'Vegetable Stir-fry' },
@@ -17,7 +17,7 @@ const Vegetarian = () => {
   const handlePurchase = (recipeName: string) => {
     alert(`You can purchase the recipe for ${recipeName}!`);
   };
-  // Handler for reviewing a recipe
+
 const handleReview = (recipeName: string) => {
   alert(`You can now leave a review for ${recipeName}.`);
 };
@@ -34,7 +34,7 @@ const handleReview = (recipeName: string) => {
             <OrderButtons 
               onOrder={() => handleOrder(recipe.name)} 
               onPurchase={() => handlePurchase(recipe.name)} 
-              onReview={() => handleReview(recipe.name)} // Add review handler
+              onReview={() => handleReview(recipe.name)} 
             />
           </div>
         ))}
