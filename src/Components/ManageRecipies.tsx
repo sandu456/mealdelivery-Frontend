@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-// Recipe interface to type the recipe data structure
+
 interface Recipe {
   id: number;
   name: string;
@@ -14,11 +14,11 @@ const ManageRecipes: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Fetch recipes from your backend
+  
   const fetchRecipes = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("/api/recipes"); // Your API to fetch recipes
+      const response = await axios.get("/api/recipes"); 
       setRecipes(response.data);
     } catch (error) {
       console.error("Error fetching recipes", error);
@@ -27,15 +27,15 @@ const ManageRecipes: React.FC = () => {
     }
   };
 
-  // Fetch the recipes when the component mounts
+ 
   useEffect(() => {
     fetchRecipes();
   }, []);
 
   const handleDelete = async (recipeId: number) => {
     try {
-      await axios.delete(`/api/recipes/${recipeId}`); // Your API endpoint to delete a recipe
-      setRecipes(recipes.filter((recipe) => recipe.id !== recipeId)); // Update the state
+      await axios.delete('/api/recipes/${recipeId}'); 
+      setRecipes(recipes.filter((recipe) => recipe.id !== recipeId)); 
     } catch (error) {
       console.error("Error deleting recipe", error);
     }
