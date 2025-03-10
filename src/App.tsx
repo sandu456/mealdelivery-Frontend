@@ -12,7 +12,7 @@ import Order from './Pages/Order';
 import OrderMeal from './Components/OrderMeal';
 import PurchaseRecipe from './Components/PurchaseRecipe';
 import ViewRecipies from './Components/ViewRecipies';
-// import OrderButtons from './Components/OrderButtons';
+import OrderButtons from './Components/OrderButtons';
 import ManageRecipes from "./Components/ManageRecipies";
 import ViewOrders from "./Components/ViewOrders";
 import ManageUsers from "./Components/ManageUsers";
