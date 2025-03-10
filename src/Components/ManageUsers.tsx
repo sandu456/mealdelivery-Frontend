@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import customerService, { createCustomer } from "../services/customerService";
 
-import "./manageUsers.css"; // You can style this component using this CSS file.
+import "./manageUsers.css"; 
 
 interface Customer {
-  customerId: string; // Assuming customerId is a string from the API, adjust if it's a number.
+  customerId: string; 
   name: string;
   email: string;
-  password: string; // Assuming password is included as per your model.
+  password: string; 
 }
 
 const ManageCustomers: React.FC = () => {
@@ -18,12 +18,12 @@ const ManageCustomers: React.FC = () => {
     password: "",
   });
 
-  // Fetch customers on component mount
+ 
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
         const data = await customerService.getCustomers();
-        setCustomers(data); // Assuming the API response is an array of customers
+        setCustomers(data);
       } catch (error) {
         console.error("Error fetching customers:", error);
       }
@@ -37,8 +37,8 @@ const ManageCustomers: React.FC = () => {
     try {
       const createdCustomer = await customerService.createCustomer(newCustomer);
       console.log("Created Customer:", createdCustomer);
-      setCustomers([...customers, createdCustomer]); // Add the new customer to the table
-      setNewCustomer({ name: "", email: "", password: "" }); // Reset form fields
+      setCustomers([...customers, createdCustomer]); 
+      setNewCustomer({ name: "", email: "", password: "" });
     } catch (error) {
       console.error("Error creating customer:", error);
     }
