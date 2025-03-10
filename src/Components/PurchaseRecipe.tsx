@@ -4,16 +4,15 @@ import './PurchaseRecipe.css';
 const PurchaseRecipe: React.FC = () => {
   const [recipe, setRecipe] = useState('');
   const [email, setEmail] = useState('');
-  // const [paymentInfo, setPaymentInfo] = useState({ cardNumber: '', expiry: '', cvv: '' });
-
+  
   const handlePurchaseSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Process payment and send recipe email
+    
     alert(`Recipe purchased: ${recipe}. It will be sent to ${email}`);
-    // Clear form
+    
     setRecipe('');
     setEmail('');
-    // setPaymentInfo({ cardNumber: '', expiry: '', cvv: '' });
+    
   };
 
   return (
