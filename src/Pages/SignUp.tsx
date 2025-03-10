@@ -15,7 +15,7 @@ const Signup: React.FC = () => {
           username: user.username,
           email: user.email,
           roles: [user.role],
-          password: user.password // Backend expects an array of roles
+          password: user.password 
         }),
       });
 
