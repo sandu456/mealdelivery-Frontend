@@ -23,7 +23,7 @@ const LogIn = () => {
           localStorage.setItem("token", data.token);
           localStorage.setItem("userRole", data.role);
 
-          // Redirect based on role
+        
           if (data.role === "ROLE_ADMIN") {
               navigate("/admin");
           } else {

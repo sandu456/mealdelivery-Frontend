@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./viewOrders.css"; // You can style this component using this CSS file.
+import "./viewOrders.css"; 
 
 interface Order {
   id: number;
@@ -10,13 +10,13 @@ interface Order {
 }
 
 const ViewOrders: React.FC = () => {
-  // Example orders; replace with actual data fetching logic
+  
   const [orders, setOrders] = useState<Order[]>([
     { id: 1, customerName: "John Doe", items: ["Spaghetti Bolognese", "Garlic Bread"], status: "Pending", date: "2025-01-28" },
     { id: 2, customerName: "Jane Smith", items: ["Chicken Curry", "Rice"], status: "Completed", date: "2025-01-27" },
   ]);
 
-  // Function to update the order status
+ 
   const updateOrderStatus = (id: number, status: string) => {
     const updatedOrders = orders.map((order) =>
       order.id === id ? { ...order, status } : order
