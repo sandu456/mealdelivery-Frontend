@@ -6,14 +6,14 @@ const OrderMeal: React.FC = () => {
   const [mealId, setMealId] = useState("");
   const [totalAmount, setTotalAmount] = useState(0);
   const [deliveryAddress, setDeliveryAddress] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState("Credit Card"); // Default to 'Credit Card'
+  const [paymentMethod, setPaymentMethod] = useState("Credit Card"); 
   const [paymentAmount, setPaymentAmount] = useState(0);
   // const [paymentAmount, setPaymentAmount] = useState<number | null>(null);
 
   const handleOrderSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Construct order payload based on the model
+  
     const orderData = {
       customerId,
       mealId,
@@ -23,15 +23,15 @@ const OrderMeal: React.FC = () => {
     };
 
     try {
-      // Send order data to the backend
-      const token = localStorage.getItem("token"); // Retrieve JWT Token
+      
+      const token = localStorage.getItem("token"); 
       // console.log(orderData, token);
       
       const response = await fetch("http://localhost:8080/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Add JWT Token
+          Authorization: `Bearer ${token}`, 
         },
         body: JSON.stringify(orderData),
       });
@@ -39,12 +39,12 @@ const OrderMeal: React.FC = () => {
 
       if (response.ok) {
         const result = await response.json();
-        setPaymentAmount(result.paymentAmount); // Store backend bill price
+        setPaymentAmount(result.paymentAmount); 
         alert(`Order placed successfully! Order ID: ${result.id}\nTotal Bill: $${result.paymentAmount}`);
         
 
       
-        // Clear form inputs after a successful order
+       
         setCustomerId("");
         setMealId("");
         setTotalAmount(0);
