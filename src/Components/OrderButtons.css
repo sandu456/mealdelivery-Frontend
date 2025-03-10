@@ -1,14 +1,13 @@
-/* Style for the button group */
+
 .button-group {
   display: flex;
-  flex-direction: column; /* Stack buttons vertically */
+  flex-direction: column; 
   gap: 10px;
   justify-content: center;
   margin-top: 20px;
   width: 100%;
 }
 
-/* Common style for all buttons */
 button {
   padding: 12px 20px;
   font-size: 16px;
@@ -18,7 +17,7 @@ button {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Style for the Order Now button */
+
 .order-button {
   background-color: #4caf50;
   color: white;
@@ -29,7 +28,7 @@ button {
   transform: translateY(-2px);
 }
 
-/* Style for the Purchase Recipe button */
+
 .purchase-button {
   background-color: #ff9800;
   color: white;
@@ -40,7 +39,7 @@ button {
   transform: translateY(-2px);
 }
 
-/* Style for the Review button */
+
 .review-button {
   background-color: #2196f3;
   color: white;
