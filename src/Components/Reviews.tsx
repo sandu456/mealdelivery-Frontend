@@ -1,5 +1,6 @@
 import React, { useEffect, useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
+import './Reviews.css';
 
 interface Review {
   id: string;
@@ -13,45 +14,71 @@ const Reviews: React.FC = () => {
   const [formData, setFormData] = useState<Omit<Review, 'id'>>({ mealId: '', content: '', rating: 0 });
   const [selectedReview, setSelectedReview] = useState<Review | null>(null);
   const [updateData, setUpdateData] = useState<Omit<Review, 'id' | 'mealId'>>({ content: '', rating: 0 });
+  const [loading, setLoading] = useState<boolean>(false); // Loading state
+  const [error, setError] = useState<string>(''); // Error state
 
-  // Fetch all reviews
   useEffect(() => {
+    setLoading(true);
     axios.get<Review[]>('/reviews/get')
-      .then(response => setReviews(response.data))
-      .catch(error => console.error('Error fetching reviews:', error));
+      .then(response => {
+        setReviews(response.data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching reviews:', error);
+        setError('Failed to load reviews.');
+        setLoading(false);
+      });
   }, []);
 
-  // Create a new review
   const handleCreateReview = (event: FormEvent) => {
     event.preventDefault();
+    if (formData.rating < 1 || formData.rating > 5) {
+      setError('Rating must be between 1 and 5.');
+      return;
+    }
     axios.post<Review>('/reviews/create', formData)
       .then(response => {
         setReviews([...reviews, response.data]);
         setFormData({ mealId: '', content: '', rating: 0 });
+        setError('');
       })
-      .catch(error => console.error('Error creating review:', error));
+      .catch(error => {
+        console.error('Error creating review:', error);
+        setError('Failed to create review.');
+      });
   };
 
-  // Update a review
   const handleUpdateReview = (event: FormEvent) => {
     event.preventDefault();
     if (!selectedReview) return;
+    if (updateData.rating < 1 || updateData.rating > 5) {
+      setError('Rating must be between 1 and 5.');
+      return;
+    }
     axios.put<Review>(`/reviews/${selectedReview.id}`, updateData)
       .then(response => {
         setReviews(reviews.map(review => review.id === selectedReview.id ? response.data : review));
         setSelectedReview(null);
         setUpdateData({ content: '', rating: 0 });
+        setError('');
       })
-      .catch(error => console.error('Error updating review:', error));
+      .catch(error => {
+        console.error('Error updating review:', error);
+        setError('Failed to update review.');
+      });
   };
 
-  // Delete a review
   const handleDeleteReview = (id: string) => {
     axios.delete(`/reviews/${id}`)
       .then(() => {
         setReviews(reviews.filter(review => review.id !== id));
+        setError('');
       })
-      .catch(error => console.error('Error deleting review:', error));
+      .catch(error => {
+        console.error('Error deleting review:', error);
+        setError('Failed to delete review.');
+      });
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -73,8 +100,13 @@ const Reviews: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="review-button">
       <h1>Reviews</h1>
+
+      {error && <div className="error">{error}</div>}
+
+      {loading ? <p>Loading reviews...</p> : null}
+
       <div>
         <h2>All Reviews</h2>
         <ul>
@@ -109,7 +141,7 @@ const Reviews: React.FC = () => {
           <input
             type="number"
             name="rating"
-            placeholder="Rating"
+            placeholder="Rating (1-5)"
             value={formData.rating}
             onChange={handleInputChange}
             required
@@ -132,7 +164,7 @@ const Reviews: React.FC = () => {
             <input
               type="number"
               name="rating"
-              placeholder="Rating"
+              placeholder="Rating (1-5)"
               value={updateData.rating}
               onChange={handleUpdateInputChange}
               required

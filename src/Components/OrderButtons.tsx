@@ -18,12 +18,13 @@ const OrderButtons: React.FC<OrderButtonsProps> = ({ onOrder, onPurchase, onRevi
 
   const handlePurchaseRecipe = () => {
     onPurchase(); // Trigger the passed-in onPurchase function
+    navigate('/purchase-recipe'); // Navigates to the OrderMeal page
     alert('Feature to purchase recipes coming soon!');
   };
 
   const handleReview = () => {
     onReview(); // Trigger the passed-in onReview function
-    navigate('/review'); // Navigate to the review page (adjust the route accordingly)
+    navigate('/reviews'); // Navigate to the review page (adjust the route accordingly)
   };
 
   return (
