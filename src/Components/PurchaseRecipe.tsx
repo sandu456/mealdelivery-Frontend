@@ -4,7 +4,7 @@ import './PurchaseRecipe.css';
 const PurchaseRecipe: React.FC = () => {
   const [recipe, setRecipe] = useState('');
   const [email, setEmail] = useState('');
-  const [paymentInfo, setPaymentInfo] = useState({ cardNumber: '', expiry: '', cvv: '' });
+  // const [paymentInfo, setPaymentInfo] = useState({ cardNumber: '', expiry: '', cvv: '' });
 
   const handlePurchaseSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -13,7 +13,7 @@ const PurchaseRecipe: React.FC = () => {
     // Clear form
     setRecipe('');
     setEmail('');
-    setPaymentInfo({ cardNumber: '', expiry: '', cvv: '' });
+    // setPaymentInfo({ cardNumber: '', expiry: '', cvv: '' });
   };
 
   return (
@@ -39,7 +39,7 @@ const PurchaseRecipe: React.FC = () => {
             required
           />
         </label>
-        <label>
+        {/* <label>
           Card Number:
           <input
             type="text"
@@ -68,7 +68,7 @@ const PurchaseRecipe: React.FC = () => {
             onChange={(e) => setPaymentInfo({ ...paymentInfo, cvv: e.target.value })}
             required
           />
-        </label>
+        </label> */}
         <button type="submit">Purchase Recipe</button>
       </form>
     </div>
