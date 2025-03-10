@@ -1,4 +1,4 @@
-/* General container styling */
+
 .reviews-container {
     max-width: 800px;
     margin: 0 auto;
@@ -30,7 +30,7 @@
     color: #555;
   }
   
-  /* Button styling */
+
   button {
     margin-right: 10px;
     padding: 10px 15px;
@@ -53,7 +53,7 @@
     background-color: #c82333;
   }
   
-  /* Form styling */
+ 
   form {
     background: #f4f4f4;
     padding: 20px;
@@ -89,7 +89,7 @@
     background-color: #218838;
   }
   
-  /* Edit section styling */
+  
   .edit-section {
     margin-top: 20px;
     background: #e9ecef;
