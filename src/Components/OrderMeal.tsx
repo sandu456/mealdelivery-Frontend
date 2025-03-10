@@ -7,8 +7,8 @@ const OrderMeal: React.FC = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [deliveryAddress, setDeliveryAddress] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("Credit Card"); // Default to 'Credit Card'
-
-  const [billPrice, setBillPrice] = useState<number | null>(null);
+  const [paymentAmount, setPaymentAmount] = useState(0);
+  // const [paymentAmount, setPaymentAmount] = useState<number | null>(null);
 
   const handleOrderSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,21 +19,28 @@ const OrderMeal: React.FC = () => {
       mealId,
       totalAmount,
       deliveryAddress,
-      paymentMethod,
+      paymentMethod
     };
 
     try {
       // Send order data to the backend
+      const token = localStorage.getItem("token"); // Retrieve JWT Token
+      // console.log(orderData, token);
+      
       const response = await fetch("http://localhost:8080/orders", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // Add JWT Token
+        },
         body: JSON.stringify(orderData),
       });
+      
 
       if (response.ok) {
         const result = await response.json();
-        setBillPrice(result.billPrice); // Store backend bill price
-        alert(`Order placed successfully! Order ID: ${result.id}\nTotal Bill: $${result.billPrice}`);
+        setPaymentAmount(result.paymentAmount); // Store backend bill price
+        alert(`Order placed successfully! Order ID: ${result.id}\nTotal Bill: $${result.paymentAmount}`);
         
 
       
@@ -43,6 +50,7 @@ const OrderMeal: React.FC = () => {
         setTotalAmount(0);
         setDeliveryAddress("");
         setPaymentMethod("Credit Card");
+        setPaymentAmount(0);
       } else {
         alert("Failed to place order. Please try again.");
       }
@@ -110,9 +118,9 @@ const OrderMeal: React.FC = () => {
           <input
             type="text"
             placeholder="Auto-calculated"
-            value={billPrice !== null ? '$${billPrice.toFixed(2)}' : ''}
+            value={paymentAmount !== 0 ? `$${paymentAmount.toFixed(2)}` : ""}
             readOnly
-/>
+          />
         </label>
 
 

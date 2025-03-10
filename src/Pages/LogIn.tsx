@@ -1,40 +1,45 @@
 import React, { useState } from 'react';
 import './LogIn.css';
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     try {
-      const response = await axios.post("http://localhost:8080/api/auth/signin", {
-        username,
-        password,
+      const response = await fetch("http://localhost:8080/api/auth/signin", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
       });
 
-      // Save the token in localStorage (for future authenticated requests)
-      localStorage.setItem("token", response.data.token);
+      const data = await response.json();
 
-      setMessage("Login successful! Redirecting...");
-      // Redirect user after successful login (modify as needed)
-      setTimeout(() => {
-        window.location.href = "/dashboard"; // Change '/dashboard' to your actual route
-      }, 2000);
-      
-    } catch (error: any) {
-      setMessage(error.response?.data?.message || "Invalid credentials. Try again.");
-    }
-  };
+      if (response.ok) {
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("userRole", data.role);
 
+          // Redirect based on role
+          if (data.role === "ROLE_ADMIN") {
+              navigate("/admin");
+          } else {
+              navigate("/order");
+          }
+      } else {
+          alert("Login failed: " + data.message);
+      }
+  } catch (error) {
+      console.error("Login error:", error);
+  }
+};
 
   return (
     <div className="login">
       <h2>Log In</h2>
-      {message && <p className="message">{message}</p>}
       <form onSubmit={handleSubmit}>
         <label>
           Username:
